@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luna Pet Chile</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+font-family: 'Roboto', sans-serif;
+background:#f1f5f9;
+}
+
+.shadow-soft{
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+</style>
+</head>
+
+<body class="flex justify-center items-center min-h-screen p-4">
+
+<div class="w-full max-w-md bg-white rounded-3xl shadow-soft p-6">
+
+<!-- HEADER -->
+
+<div class="text-center">
+
+<img 
+src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b"
+class="w-28 h-28 rounded-full mx-auto object-cover border-4 border-blue-500"
+/>
+
+<h1 class="text-2xl font-bold mt-3">
+Luna
+</h1>
+
+<p class="text-red-600 font-bold text-lg mt-1">
+¡ESTOY PERDIDO!
+</p>
+
+<p class="text-gray-500 text-sm">
+Luna Pet Chile
+</p>
+
+</div>
+
+
+<!-- CONTACTO PRIORIDAD -->
+
+<div class="mt-6 space-y-3">
+
+<a 
+href="tel:+56912345678"
+class="block w-full text-center bg-blue-600 text-white text-lg font-bold py-4 rounded-xl">
+📞 LLAMAR AL DUEÑO
+</a>
+
+
+<a 
+href="https://wa.me/56912345678?text=Hola%2C%20encontr%C3%A9%20a%20tu%20mascota%20Luna"
+target="_blank"
+class="block w-full text-center bg-green-500 text-white text-lg font-bold py-4 rounded-xl">
+💬 ENVIAR WHATSAPP
+</a>
+
+<button 
+onclick="sendLocation()"
+class="w-full bg-emerald-600 text-white text-lg font-bold py-4 rounded-xl">
+📍 Compartir mi ubicación con el dueño
+</button>
+
+</div>
+
+
+<!-- INFORMACION MEDICA -->
+
+<div class="mt-6 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg">
+
+<h2 class="font-bold text-yellow-800">
+⚠ Información Importante
+</h2>
+
+<p class="text-yellow-900 mt-1 text-sm">
+Soy asustadiza, por favor acércate con calma.
+</p>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="text-center text-xs text-gray-400 mt-6">
+Sistema de emergencia • Luna Pet Chile
+</div>
+
+</div>
+
+
+<script>
+
+function sendLocation(){
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+let lat = position.coords.latitude
+let lon = position.coords.longitude
+
+let message = `Hola, encontré a Luna. Mi ubicación es: https://maps.google.com/?q=${lat},${lon}`
+
+let url = `https://wa.me/56912345678?text=${encodeURIComponent(message)}`
+
+window.open(url,"_blank")
+
+})
+
+}else{
+
+alert("Tu dispositivo no permite geolocalización")
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
